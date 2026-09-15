@@ -5,6 +5,7 @@ Put your material in the paths below; the page will load it automatically.
 - `videos/leapumi.mp4`: overview video
 - `images/method.png`: method figure
 - `images/devices.png`: hardware overview figure
+- `images/main.png`: LeapUMI-PVP pipeline overview figure
 - `fiexed_full_assembly_right.STEP`: interactive hardware CAD model
 - `images/collection-01.png` through `images/collection-03.png`: collection shots
 - `images/inpainting-01.png` through `images/inpainting-04.png`: inpainting sequence
