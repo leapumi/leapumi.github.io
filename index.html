@@ -11,8 +11,6 @@
     .media-frame.is-empty:has(.project-image:not([hidden])) { display:block; min-height:0; border-style:solid; background:#fff; }
     .media-frame.is-empty:has(.project-image:not([hidden])) .project-image { display:block; }
     .media-frame.is-empty:has(.project-image:not([hidden])) .placeholder { display:none; }
-    .image-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-    .image-grid .media-frame { min-height:180px; }
     .overview-video { display:block; width:min(100%, 900px); margin:auto; border:1px solid var(--line); border-radius:12px; background:#101827; box-shadow:0 7px 20px #19233c14; }
     .cad-card { position:relative; min-height:520px; margin-top:24px; overflow:hidden; border:1px solid var(--line); border-radius:12px; background:linear-gradient(145deg,#fafdff,#e8f0fb); box-shadow:0 7px 20px #19233c14; }
     .cad-viewer { width:100%; height:520px; cursor:grab; touch-action:none; }
@@ -22,12 +20,6 @@
     .cad-status.error { color:#9b3540; }
     .cad-badge { position:absolute; top:14px; left:14px; z-index:2; padding:5px 10px; border:1px solid #ffffffa6; border-radius:999px; background:#ffffffd9; color:#40536f; backdrop-filter:blur(8px); font-size:.75rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; pointer-events:none; }
     .cad-note { margin:13px auto 0; color:var(--muted); text-align:center; font-size:.88rem; }
-    .inpainting-row { display:grid; grid-template-columns:1fr auto 1fr auto 1fr auto 1fr; gap:10px; align-items:center; }
-    .inpainting-row .media-frame { min-height:160px; }
-    .arrow { color:var(--blue); font-size:1.45rem; font-weight:700; line-height:1; }
-    @media (max-width:780px) { .image-grid { grid-template-columns:repeat(2,1fr); } }
-    @media (max-width:620px) { .inpainting-row { grid-template-columns:1fr; gap:8px; } .arrow { transform:rotate(90deg); text-align:center; } }
-    @media (max-width:480px) { .image-grid { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -50,20 +42,13 @@
     <section id="pipeline"><div class="container"><h2 class="section-title">Method</h2><div class="media-frame is-empty"><img class="project-image" src="assets/images/method.png" alt="LeapUMI method" onerror="this.hidden=true;this.parentElement.classList.add('is-empty')"><div class="placeholder"><strong>Method figure</strong><code>assets/images/method.png</code></div></div></div></section>
     <!-- 4. Project figure -->
     <section id="overview"><div class="container"><h2 class="section-title">Hardware Overview</h2><div class="media-frame is-empty"><img class="project-image" src="assets/images/devices.png" alt="LeapUMI hardware overview" onerror="this.hidden=true;this.parentElement.classList.add('is-empty')"><div class="placeholder"><strong>Hardware figure</strong><code>assets/images/devices.png</code></div></div><div class="cad-card"><div class="cad-badge">Interactive CAD</div><div id="cad-viewer" class="cad-viewer" aria-label="Interactive CAD model preview"><div id="cad-status" class="cad-status">Loading interactive CAD model...</div></div></div><p class="cad-note">Drag to rotate, scroll to zoom.</p></div></section>
-    <!-- 4. Collection images -->
-    <section id="results"><div class="container"><h2 class="section-title">Collection Shot</h2><p class="section-note">Replace this subtitle with the title or one-sentence description for this row.</p><div class="image-grid">
-      <article><div class="media-frame is-empty"><img class="project-image" src="assets/images/collection-01.png" alt="Collection shot 1" onerror="this.hidden=true;this.parentElement.classList.add('is-empty')"><div class="placeholder"><strong>Collection image 1</strong><code>assets/images/collection-01.png</code></div></div><p class="video-label">Example 1</p></article>
-      <article><div class="media-frame is-empty"><img class="project-image" src="assets/images/collection-02.png" alt="Collection shot 2" onerror="this.hidden=true;this.parentElement.classList.add('is-empty')"><div class="placeholder"><strong>Collection image 2</strong><code>assets/images/collection-02.png</code></div></div><p class="video-label">Example 2</p></article>
-      <article><div class="media-frame is-empty"><img class="project-image" src="assets/images/collection-03.png" alt="Collection shot 3" onerror="this.hidden=true;this.parentElement.classList.add('is-empty')"><div class="placeholder"><strong>Collection image 3</strong><code>assets/images/collection-03.png</code></div></div><p class="video-label">Example 3</p></article>
+    <!-- 4. Collection videos -->
+    <section id="results"><div class="container"><h2 class="section-title">Collection Shot</h2><p class="section-note">Replace this subtitle with the title or one-sentence description for this row.</p><div class="video-grid three">
+      <article><div class="video-card"><div class="video-placeholder"><div><b>Watering</b><code>assets/videos/watering.mp4</code></div></div><video controls autoplay muted loop playsinline onerror="this.classList.add('unavailable')"><source src="assets/videos/watering.mp4" type="video/mp4"></video></div><p class="video-label">Watering</p></article>
+      <article><div class="video-card"><div class="video-placeholder"><div><b>Rotation</b><code>assets/videos/rotation.mp4</code></div></div><video controls autoplay muted loop playsinline onerror="this.classList.add('unavailable')"><source src="assets/videos/rotation.mp4" type="video/mp4"></video></div><p class="video-label">Rotation</p></article>
+      <article><div class="video-card"><div class="video-placeholder"><div><b>Toy</b><code>assets/videos/toy.mp4</code></div></div><video controls autoplay muted loop playsinline onerror="this.classList.add('unavailable')"><source src="assets/videos/toy.mp4" type="video/mp4"></video></div><p class="video-label">Toy</p></article>
     </div></div></section>
-    <!-- 5. Inpainting sequence -->
-    <section id="inpainting"><div class="container"><h2 class="section-title">Inpainting</h2><p class="section-note">Replace this subtitle with a short description of the visual inpainting process.</p><div class="inpainting-row">
-      <article><div class="media-frame is-empty"><img class="project-image" src="assets/images/inpainting-01.png" alt="Inpainting step 1" onerror="this.hidden=true;this.parentElement.classList.add('is-empty')"><div class="placeholder"><strong>Input image</strong><code>assets/images/inpainting-01.png</code></div></div></article><span class="arrow" aria-hidden="true">→</span>
-      <article><div class="media-frame is-empty"><img class="project-image" src="assets/images/inpainting-02.png" alt="Inpainting step 2" onerror="this.hidden=true;this.parentElement.classList.add('is-empty')"><div class="placeholder"><strong>Step 2</strong><code>assets/images/inpainting-02.png</code></div></div></article><span class="arrow" aria-hidden="true">→</span>
-      <article><div class="media-frame is-empty"><img class="project-image" src="assets/images/inpainting-03.png" alt="Inpainting step 3" onerror="this.hidden=true;this.parentElement.classList.add('is-empty')"><div class="placeholder"><strong>Step 3</strong><code>assets/images/inpainting-03.png</code></div></div></article><span class="arrow" aria-hidden="true">→</span>
-      <article><div class="media-frame is-empty"><img class="project-image" src="assets/images/inpainting-04.png" alt="Inpainting step 4" onerror="this.hidden=true;this.parentElement.classList.add('is-empty')"><div class="placeholder"><strong>Inpainted output</strong><code>assets/images/inpainting-04.png</code></div></div></article>
-    </div></div></section>
-    <!-- 6. Deployment videos -->
+    <!-- 5. Deployment videos -->
     <section id="more-results"><div class="container"><h2 class="section-title">Deployment Videos</h2><p class="section-note">Replace this subtitle with the title or one-sentence description for this row.</p><div class="video-grid four">
       <article><div class="video-card"><div class="video-placeholder"><div><b>Video 5</b><code>assets/videos/result-05.mp4</code></div></div><video controls autoplay muted loop playsinline onerror="this.classList.add('unavailable')"><source src="assets/videos/result-05.mp4" type="video/mp4"></video></div><p class="video-label">Example 5</p></article>
       <article><div class="video-card"><div class="video-placeholder"><div><b>Video 6</b><code>assets/videos/result-06.mp4</code></div></div><video controls autoplay muted loop playsinline onerror="this.classList.add('unavailable')"><source src="assets/videos/result-06.mp4" type="video/mp4"></video></div><p class="video-label">Example 6</p></article>
