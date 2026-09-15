@@ -50,7 +50,7 @@
     <!-- 3. Pipeline / flowchart -->
     <section id="pipeline"><div class="container"><h2 class="section-title">Method</h2><div class="media-frame is-empty"><img class="project-image" src="assets/images/method.png" alt="LeapUMI method" onerror="this.hidden=true;this.parentElement.classList.add('is-empty')"><div class="placeholder"><strong>Method figure</strong><code>assets/images/method.png</code></div></div></div></section>
     <!-- 4. Project figure -->
-    <section id="overview"><div class="container"><h2 class="section-title">Hardware Overview</h2><div class="media-frame is-empty"><img class="project-image" src="assets/images/devices.png" alt="LeapUMI hardware overview" onerror="this.hidden=true;this.parentElement.classList.add('is-empty')"><div class="placeholder"><strong>Hardware figure</strong><code>assets/images/devices.png</code></div></div><div class="cad-card"><div class="cad-badge">Interactive CAD</div><div id="cad-viewer" class="cad-viewer" aria-label="Interactive CAD model preview"><div id="cad-status" class="cad-status">Loading interactive CAD model...</div></div></div><p class="cad-note">Drag to rotate, scroll to zoom. <a href="assets/full_assembly_right.step" download>Download STEP model</a></p></div></section>
+    <section id="overview"><div class="container"><h2 class="section-title">Hardware Overview</h2><div class="media-frame is-empty"><img class="project-image" src="assets/images/devices.png" alt="LeapUMI hardware overview" onerror="this.hidden=true;this.parentElement.classList.add('is-empty')"><div class="placeholder"><strong>Hardware figure</strong><code>assets/images/devices.png</code></div></div><div class="cad-card"><div class="cad-badge">Interactive CAD</div><div id="cad-viewer" class="cad-viewer" aria-label="Interactive CAD model preview"><div id="cad-status" class="cad-status">Loading interactive CAD model...</div></div></div><p class="cad-note">Drag to rotate, scroll to zoom. <a href="assets/fiexed_full_assembly_right.STEP" download>Download STEP model</a></p></div></section>
     <!-- 4. Collection images -->
     <section id="results"><div class="container"><h2 class="section-title">Collection Shot</h2><p class="section-note">Replace this subtitle with the title or one-sentence description for this row.</p><div class="image-grid">
       <article><div class="media-frame is-empty"><img class="project-image" src="assets/images/collection-01.png" alt="Collection shot 1" onerror="this.hidden=true;this.parentElement.classList.add('is-empty')"><div class="placeholder"><strong>Collection image 1</strong><code>assets/images/collection-01.png</code></div></div><p class="video-label">Example 1</p></article>
@@ -103,7 +103,7 @@
         controls.dampingFactor = 0.08;
         controls.screenSpacePanning = false;
 
-        const response = await fetch('assets/full_assembly_right.step');
+        const response = await fetch('assets/fiexed_full_assembly_right.STEP');
         if (!response.ok) throw new Error('The STEP file could not be loaded.');
         const bytes = new Uint8Array(await response.arrayBuffer());
         const occt = await occtimportjs();
