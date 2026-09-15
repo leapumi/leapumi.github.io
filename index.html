@@ -22,7 +22,6 @@
     .cad-status.error { color:#9b3540; }
     .cad-badge { position:absolute; top:14px; left:14px; z-index:2; padding:5px 10px; border:1px solid #ffffffa6; border-radius:999px; background:#ffffffd9; color:#40536f; backdrop-filter:blur(8px); font-size:.75rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; pointer-events:none; }
     .cad-note { margin:13px auto 0; color:var(--muted); text-align:center; font-size:.88rem; }
-    .cad-note a { color:var(--blue); font-weight:650; }
     .inpainting-row { display:grid; grid-template-columns:1fr auto 1fr auto 1fr auto 1fr; gap:10px; align-items:center; }
     .inpainting-row .media-frame { min-height:160px; }
     .arrow { color:var(--blue); font-size:1.45rem; font-weight:700; line-height:1; }
@@ -50,7 +49,7 @@
     <!-- 3. Pipeline / flowchart -->
     <section id="pipeline"><div class="container"><h2 class="section-title">Method</h2><div class="media-frame is-empty"><img class="project-image" src="assets/images/method.png" alt="LeapUMI method" onerror="this.hidden=true;this.parentElement.classList.add('is-empty')"><div class="placeholder"><strong>Method figure</strong><code>assets/images/method.png</code></div></div></div></section>
     <!-- 4. Project figure -->
-    <section id="overview"><div class="container"><h2 class="section-title">Hardware Overview</h2><div class="media-frame is-empty"><img class="project-image" src="assets/images/devices.png" alt="LeapUMI hardware overview" onerror="this.hidden=true;this.parentElement.classList.add('is-empty')"><div class="placeholder"><strong>Hardware figure</strong><code>assets/images/devices.png</code></div></div><div class="cad-card"><div class="cad-badge">Interactive CAD</div><div id="cad-viewer" class="cad-viewer" aria-label="Interactive CAD model preview"><div id="cad-status" class="cad-status">Loading interactive CAD model...</div></div></div><p class="cad-note">Drag to rotate, scroll to zoom. <a href="assets/fiexed_full_assembly_right.STEP" download>Download STEP model</a></p></div></section>
+    <section id="overview"><div class="container"><h2 class="section-title">Hardware Overview</h2><div class="media-frame is-empty"><img class="project-image" src="assets/images/devices.png" alt="LeapUMI hardware overview" onerror="this.hidden=true;this.parentElement.classList.add('is-empty')"><div class="placeholder"><strong>Hardware figure</strong><code>assets/images/devices.png</code></div></div><div class="cad-card"><div class="cad-badge">Interactive CAD</div><div id="cad-viewer" class="cad-viewer" aria-label="Interactive CAD model preview"><div id="cad-status" class="cad-status">Loading interactive CAD model...</div></div></div><p class="cad-note">Drag to rotate, scroll to zoom.</p></div></section>
     <!-- 4. Collection images -->
     <section id="results"><div class="container"><h2 class="section-title">Collection Shot</h2><p class="section-note">Replace this subtitle with the title or one-sentence description for this row.</p><div class="image-grid">
       <article><div class="media-frame is-empty"><img class="project-image" src="assets/images/collection-01.png" alt="Collection shot 1" onerror="this.hidden=true;this.parentElement.classList.add('is-empty')"><div class="placeholder"><strong>Collection image 1</strong><code>assets/images/collection-01.png</code></div></div><p class="video-label">Example 1</p></article>
@@ -117,8 +116,8 @@
           if (source.attributes.normal) geometry.setAttribute('normal', new THREE.Float32BufferAttribute(source.attributes.normal.array, 3));
           else geometry.computeVertexNormals();
           geometry.setIndex(new THREE.BufferAttribute(Uint32Array.from(source.index.array), 1));
-          const color = source.color ? new THREE.Color(source.color[0], source.color[1], source.color[2]) : new THREE.Color(0x5c88c9);
-          model.add(new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color, roughness: 0.56, metalness: 0.18, side: THREE.DoubleSide })));
+          const color = source.color ? new THREE.Color(source.color[0], source.color[1], source.color[2]) : new THREE.Color(0xc4c8cc);
+          model.add(new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color, roughness: 0.34, metalness: 0.78, side: THREE.DoubleSide })));
         }
         scene.add(model);
         const bounds = new THREE.Box3().setFromObject(model);
