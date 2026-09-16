@@ -1,0 +1,3 @@
+# Preserve CAD exports byte-for-byte when they are renamed or downloaded.
+*.STEP binary
+*.step binary

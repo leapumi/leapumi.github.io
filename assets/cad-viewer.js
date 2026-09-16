@@ -1,19 +1,6 @@
 (function () {
   'use strict';
 
-  // The anonymous website sandbox also blocks direct downloads. Navigate in the
-  // same tab to its normal file viewer, which provides an unrestricted Download.
-  const anonymousWebsite = location.hostname === 'anonymous.4open.science' &&
-    location.pathname.match(/^\/w\/([^/]+)(?:\/|$)/);
-  if (anonymousWebsite) {
-    document.querySelectorAll('a[download]').forEach((link) => {
-      const file = link.getAttribute('href');
-      link.href = '/r/' + anonymousWebsite[1] + '/' + file;
-      link.removeAttribute('download');
-      link.title = 'Open the STEP file, then choose Download';
-    });
-  }
-
   const previewUrl = new URL('cad/hardware-preview.js', document.currentScript.src).href;
   const mount = document.getElementById('cad-viewer');
   const status = document.getElementById('cad-status');
@@ -172,7 +159,7 @@
       renderer.domElement.addEventListener('webglcontextlost', (event) => {
         event.preventDefault();
         status.hidden = false;
-        status.textContent = '3D preview paused. Refresh this page to reload, or download the STEP file below.';
+        status.textContent = '3D preview paused. Refresh this page to reload the model.';
         card.dataset.state = 'error';
       });
     } catch (error) {
@@ -181,7 +168,7 @@
         renderer.domElement.remove();
       }
       status.hidden = false;
-      status.textContent = '3D preview is unavailable. Try refreshing the page or download the STEP file below.';
+      status.textContent = '3D preview is unavailable. Try refreshing the page to reload the model.';
       status.classList.add('error');
       card.dataset.state = 'error';
       console.error('LeapUMI CAD preview:', error);
